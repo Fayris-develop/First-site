@@ -57,6 +57,7 @@ ol[class] {
   transform: translate(-50%, -50%);
 
   color: red;
+  font-size: 48px;
 }
 
 /* div:nth-last-child(2){
