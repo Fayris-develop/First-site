@@ -233,17 +233,41 @@ ol[class] {
   padding-top: 30px;
   /* padding: 30px 5px 0; */
 }
+.header__overlay {
+  display: none;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.header__navigation.header__navigation--menu {
+  display: block;
+  position: absolute;
+  top: 90px;
+  z-index: 5;
+  background-color: #fbfbfb;
+  /* border: 0.5px solid #ff2f96; */
+}
 .navigation__menu {
   display: flex;
   justify-content: space-between;
   list-style-type: none;
   font-size: 16px;
-
   /* flex-basis: 300px; */
   /* flex-grow: 1; */
 }
+.navigation__menu--burger{
+  flex-direction: column;
+  font-size: 22px;
+}
 .navigation__menu li:not(:last-child){
   margin-right: 35px;
+}
+.navigation__menu--burger li:not(:last-child){
+  margin-bottom: 20px;
+  margin-right: 0px;
 }
 .header__button {
   background-color: transparent;
@@ -615,14 +639,6 @@ display: block;
 
   top: 50%;
 }
-/* .advertising__tags-bot-group{
-  position: absolute; 
-  top: 0; 
-  left: 0; 
-  width: 100%; 
-  height: 100%;
-  z-index: -1;
-} */
 .elements__bot-item--1,
 .elements__bot-item--3{
   left: 50%;
@@ -661,6 +677,57 @@ display: block;
   right: -288px;
   font-size: 50px;
   transform: rotate(-25deg);
+}
+
+.pop-up {
+  display: none;
+}
+.pop-up__overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.pop-up__menu {
+  position: fixed;
+  border: 1px solid #ff2f96;
+  background-color: #EBEBEB;
+  padding: 10px 20px;
+  width: 320px;
+  height: 500px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* top: calc(50% - 500px); */
+  font-size: 18px;
+}
+.pop-up__menu p {
+  margin-bottom: 10px;
+  line-height: 24px;
+}
+.pop-up__menu input {
+  border: 1px solid #ff2f96;
+  height: 40px;
+  width: 277px;
+  font-size: 28px;
+}
+.pop-up__menu .pop-up__button {
+  width: 280px;
+  height: 50px;
+}
+.pop-up__close{
+  background-image: url('../img/cross.png');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background-color: transparent;
+
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
 
 
@@ -881,6 +948,9 @@ display: block;
   .header {
     padding-top: 30px;
   }
+  .header__navigation.header__navigation--menu {
+    top: 75px;
+  }
   .header__button {
     width: 24px;
     height: 18px;
@@ -915,7 +985,7 @@ display: block;
     /* height: 580px; */
     width: 100%;
     background-color: #fbfbfb;
-    z-index: -2;
+    z-index: 0;
   }
   .main-character__photo-wrapper{
     position: static;

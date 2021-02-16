@@ -29,11 +29,12 @@
 
 <header class="header center-wrapper">
   <button class="header__button"></button>
+  <div class="header__overlay"></div>
   <nav class="header__navigation navigation">
     <ul class="navigation__menu">
-      <li><a href="#">Услуги</a></li>
-      <li><a href="#">Портфолио</a></li>
-      <li><a href="#">Стоимость</a></li>
+      <li><a href="#i-doing" class="navigation__item">Услуги</a></li>
+      <li><a href="#example" class="navigation__item">Портфолио</a></li>
+      <li><a href="#advertising" class="navigation__item">Стоимость</a></li>
     </ul>
   </nav>
   <a class="header__number" 
@@ -46,7 +47,7 @@
 
 
 <main class="main"> 
-  <section class="main__main-character main-character center-wrapper">
+  <section class="main-character center-wrapper">
     <div class="main-character__photo-wrapper">
       <img
         class="photo"
@@ -57,7 +58,7 @@
     <div class="main-character__description">
       <h1 class="name">Дмитрий Алексеев</h1>
       <p class="prof">Frontend-разработчик и веб-верстальщик</p>
-      <button class="orange-button see-more">Узнать больше</button>
+      <button class="orange-button see-more" href="#i-doing">Узнать больше</button>
     </div>
     <div class="elements" aria-hidden="true">
         <div class="elements__item elements__item--1">{ }</div>
@@ -131,10 +132,27 @@
         </div>
       </div>
   </section>
+
+  <section class="pop-up">
+    <div class="pop-up__overlay"></div>
+    <div class="pop-up__menu">
+      <p>*Введите имя:</p>
+      <input class="pop-up__name" type="text" maxlength="50" placeholder="Имя">
+      <p>*Введите телефон:</p>
+      <input class="pop-up__number" type="number" maxlength="50" placeholder="Телефон">
+      <p class="pop-up__label">Введите email:</p>
+      <input class="pop-up__email" type="email" maxlength="50" placeholder="email">
+      <p>С вами свяжутся в ближайшее время</p>
+      <button class="pop-up__button orange-button">Отправить</button>
+      <p>* - поля обязательные к заполениню</p>
+      <button class="pop-up__close"></button>    
+    </div>
+  </section>
+
 </main>
 
 <footer class="footer">
-  <div class="footer__bottom-menu bottom-menu center-wrapper">
+  <div class="bottom-menu center-wrapper">
     <nav class="bottom-menu__left">
       <ul class="bottom-menu__nav">
         <li><a href="#">Услуги</a></li>
@@ -154,7 +172,7 @@
     </div>
     <div class="bottom-menu__right">
       <button class="bottom-menu__call-back call-back">Заказать звонок</button>
-      <ul class="social-networks bottom-menu__icon">        
+      <ul class="bottom-menu__icon social-networks">        
         <li><a href="#" aria-label="Вконтакте" class="social-networks__item social-networks__item--vk"></a></li>
         <li><a href="#" aria-label="Facebook" class="social-networks__item social-networks__item--fb"></a></li>
         <li><a href="#" aria-label="Twitter" class="social-networks__item social-networks__item--tw"></a></li>
