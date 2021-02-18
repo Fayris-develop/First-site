@@ -89,8 +89,19 @@ function SendRequest(r_method, r_path, r_args, r_handler)
     //Если обмен данными завершен
     if (Request.readyState == 4)
     {
-        //Передаем управление обработчику пользователя
-        r_handler(Request);
+      if (Request.status == 200)
+      {
+          //Передаем управление обработчику пользователя
+          r_handler(Request);
+      }
+      else
+      {
+          //Оповещаем пользователя о произошедшей ошибке
+      }
+    }
+    else
+    {
+        //Оповещаем пользователя о загрузке
     }
   }
   
