@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Form</title>
+	<link rel="stylesheet" href="jquery.formstyler.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="container">
+		<form>
+			<input type="hidden" name="project_name" value="Проект">
+			<input type="hidden" name="admin_email" value="GGconcurs@yandex.ru">
+			<input type="hidden" name="form_subject" value="Тема">			
+			<h1>Запрос на индивидуальное инвестиционное предложение</h1>
+			<label class="form__input">
+				<span>Ваше имя</span>
+				<input type="text" name="Имя">
+			</label>
+			<label class="form__input">
+				<span>Номер телефона</span>
+				<input type="tel" name="Телефон" placeholder="+7 (___) ___-__-__">
+			</label>
+			<label class="form__input">
+				<span>Предполагаемая
+				сумма инвестиций</span>
+				<select name="summ">
+					<option value="от 500 000 р">от 500 000 р</option>
+					<option value="до 500 000 р">до 500 000 р</option>
+					<option value="от 1 000 000 р">от 1 000 000 р</option>
+				</select>
+			</label>
+			<input class="form__button" type="submit" value="Получить инвестиционное предложение">
+			<label class="form__check">
+				<input type="checkbox">
+				<span>Нажатием на кнопку я даю свое согласие на обработку персональных данных
+				в соответствии с указанными здесь словиями.</span>
+			</label>
+
+			<label class="form__file">
+				<input type="file">
+				<span>закачай файл</span>
+			</label>
+		</form>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="jquery.inputmask.min.js"></script>
+	<script src="jquery.formstyler.min.js"></script>
+	<script src="jquery.validate.min.js"></script>
+	<script>
+
+		$(document).ready(function(){
+			$('input[type="tel"]').inputmask({ "mask": "+7 (999) 999-9999" }); //specifying options
+
+
+			$('select').styler();
+
+
+			$('form').each(function () {
+				$(this).validate({
+					errorPlacement(error, element) {
+						return true;
+					},
+					focusInvalid: false,
+					rules: {
+						Телефон: {
+							required: true,
+						},
+						Имя: {
+							required: true,
+							maxlength: 5,
+						}
+					},
+					messages: {
+						Телефон: {
+							required: 'Нужно что-то ввести'
+						},
+						Имя: {
+							required: 'Нужно что-то ввести',
+							maxlength: 'Нужно ввести максимум 5 букв'
+						}
+					},
+					submitHandler(form) {
+						let th = $(form);
+
+						
+						// $.ajax({
+						// 	type: 'POST',
+						// 	url: 'mail.php',
+						// 	data: th.serialize(),
+						// 	// eslint-disable-next-line func-names
+						// }).done(() => {
+						// 	console.log("Успех")
+						// 	// th.trigger('reset');
+						// 	});
+
+						let textSad	= "project_name=Клиент&admin_email=GGconcurs%40yandex.ru&form_subject=Письмо&Имя=Ильдар&Телефон=8 (999) 333-9999&Сумма=500р"
+
+						$.ajax({
+							type: 'POST',
+							url: 'mail.php',
+							data: textSad,							
+						}).done(() => {
+							console.log("Успех")
+							});
+						console.log(textSad);
+						return false;
+					}
+			});
+			});
+		});
+
+		
+
+	</script>
+</body>
+</html>

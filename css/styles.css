@@ -15,6 +15,7 @@
   src: local(''),
        url('../fonts/roboto-v20-latin_cyrillic-regular.woff2') format('woff2'), /* Super Modern Browsers */
        url('../fonts/roboto-v20-latin_cyrillic-regular.woff') format('woff'); /* Modern Browsers */
+  font-display: swap;
 }
 
 /* roboto-500 - latin_cyrillic */
@@ -25,6 +26,7 @@
   src: local(''),
        url('../fonts/roboto-v20-latin_cyrillic-500.woff2') format('woff2'), /* Super Modern Browsers */
        url('../fonts/roboto-v20-latin_cyrillic-500.woff') format('woff'); /* Modern Browsers */
+  font-display: swap;
 }
 
 /* roboto-italic - latin_cyrillic */
@@ -35,6 +37,7 @@
   src: local(''),
        url('../fonts/roboto-v20-latin_cyrillic-italic.woff2') format('woff2'), /* Super Modern Browsers */
        url('../fonts/roboto-v20-latin_cyrillic-italic.woff') format('woff'); /* Modern Browsers */
+  font-display: swap;
 }
 
 /* roboto-500italic - latin_cyrillic */
@@ -45,6 +48,7 @@
   src: local(''),
        url('../fonts/roboto-v20-latin_cyrillic-500italic.woff2') format('woff2'), /* Super Modern Browsers */
        url('../fonts/roboto-v20-latin_cyrillic-500italic.woff') format('woff'); /* Modern Browsers */
+  font-display: swap;
 }
 
 /* roboto-700 - latin_cyrillic */
@@ -55,6 +59,7 @@
   src: local(''),
        url('../fonts/roboto-v20-latin_cyrillic-700.woff2') format('woff2'), /* Super Modern Browsers */
        url('../fonts/roboto-v20-latin_cyrillic-700.woff') format('woff'); /* Modern Browsers */
+  font-display: swap;
 }
 
 /* roboto-900 - latin_cyrillic */
@@ -65,6 +70,7 @@
   src: local(''),
        url('../fonts/roboto-v20-latin_cyrillic-900.woff2') format('woff2'), /* Super Modern Browsers */
        url('../fonts/roboto-v20-latin_cyrillic-900.woff') format('woff'); /* Modern Browsers */
+  font-display: swap;
 }
 
 /* roboto-900italic - latin_cyrillic */
@@ -75,6 +81,7 @@
   src: local(''),
        url('../fonts/roboto-v20-latin_cyrillic-900italic.woff2') format('woff2'), /* Super Modern Browsers */
        url('../fonts/roboto-v20-latin_cyrillic-900italic.woff') format('woff'); /* Modern Browsers */
+  font-display: swap;
 }
 
 /* roboto-700italic - latin_cyrillic */
@@ -85,6 +92,7 @@
   src: local(''),
        url('../fonts/roboto-v20-latin_cyrillic-700italic.woff2') format('woff2'), /* Super Modern Browsers */
        url('../fonts/roboto-v20-latin_cyrillic-700italic.woff') format('woff'); /* Modern Browsers */
+  font-display: swap;
 }
 
 
@@ -171,8 +179,7 @@ html {
 body {
     margin: 0;
     min-width: 320px;   /*медиа запросы и хром 337px */
-    /* font: 14px "Roboto", "Arial", sans-serif ;     */
-    font: 14px/20px "Roboto", "Arial", sans-serif ;    
+    font: 14px/20px 'Roboto', 'Arial', sans-serif ;    
     /* font-family: 'Comic Sans MS Regular', sans-serif; */
     text-decoration-skip-ink: none;
     background-color: #fbfbfb;
@@ -354,7 +361,6 @@ ol[class] {
   line-height: 95px;
   margin: 0px 0;
   text-align: center;
-  /* font-family: "Roboto-Black", "Arial", sans-serif ; */
   font-weight: 900;
 }
 .prof {
@@ -372,6 +378,7 @@ ol[class] {
   border: none;
 
   cursor: pointer;
+  transition: color 0.3s;
 }
 
 .elements{
@@ -619,13 +626,13 @@ display: block;
 .advertising__head {
   font-size: 45px;
   line-height: 60px;
-  color: white;
+  color: #fff;
   /* max-width: 970px; */
 }
 .advertising__main {
   font-size: 18px;
   line-height: 33px;
-  color: white;
+  color: #fff;
   max-width: 764px;
   margin-top: 30px;
 }
@@ -634,7 +641,7 @@ display: block;
   line-height: normal;
   font-weight: bold;  
 
-  color: white;
+  color: #fff;
   position: absolute;
 
   top: 50%;
@@ -798,7 +805,7 @@ display: block;
 
 .footer__credits {
   background-color: #31293c;
-  color: white;
+  color: #fff;
   text-align: center;
   padding: 30px 0;
   font-size: 16px;
@@ -1115,7 +1122,7 @@ display: block;
 
 
   .bottom-menu__right .call-back {
-    color: white;
+    color: #fff;
     background-color: #ff4e2e;
     border: none;
     font-size: 16px;

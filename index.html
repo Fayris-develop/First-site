@@ -4,17 +4,21 @@
 <head>
   <meta charset="utf-8">
   <title>Диплом</title>
-  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <link rel="stylesheet" type="text/css" href="css/styles.css?1.00">
+  <link rel="stylesheet" type="text/css" href="css/img-font.css?1.00"><!-- шрифт с иконками -->
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> -->
+  <link rel="preload" href="../fonts/roboto-v20-latin_cyrillic-regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/roboto-v20-latin_cyrillic-900.woff2" as="font" type="font/woff2" crossorigin>
   
   <!-- <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'> -->
   <!-- npm run dev -->
   <!-- <script src="js/jquery-3.4.1.min.js" defer></script> -->
 
-  <script src="js/swiper-bundle.min.js"></script>  
+  <script src="js/swiper-bundle.min.js" defer></script>  
+  <script src="js/inputmask.min.js" defer></script>  
   <script src="js/script.js" defer></script>  
-  <meta name= "viewport" content= "width=device-width, initial-scale=1, shrink-to-fit=no" >
-  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> -->
-  <link rel="stylesheet" type="text/css" href="css/all.css"><!-- шрифт с иконками -->
+  <meta name= "viewport" content= "width=device-width, initial-scale=1, shrink-to-fit=no" >  
 
   <link rel="apple-touch-icon" sizes="72x72" href="img/ico/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="img/ico/favicon-32x32.png">
@@ -28,7 +32,7 @@
 <body>
 
 <header class="header center-wrapper">
-  <button class="header__button"></button>
+  <button class="header__button" aria-label="меню"></button>
   <div class="header__overlay"></div>
   <nav class="header__navigation navigation">
     <ul class="navigation__menu">
@@ -58,7 +62,7 @@
     <div class="main-character__description">
       <h1 class="name">Дмитрий Алексеев</h1>
       <p class="prof">Frontend-разработчик и веб-верстальщик</p>
-      <button class="orange-button see-more" href="#i-doing">Узнать больше</button>
+      <button class="orange-button see-more">Узнать больше</button>
     </div>
     <div class="elements" aria-hidden="true">
         <div class="elements__item elements__item--1">{ }</div>
@@ -100,20 +104,20 @@
     <h2 class="title">Примеры моих работ</h2>
     <ul class="example__list">
       <li class="example__item">
-        <img src="img/examples/example-1.png" alt="сайт-пример">
+        <img src="img/examples/example-1.jpg" alt="сайт-пример">
         <a href="#" class="example__name name-elem">Сайт психолога Веры Антоновой</a>
       </li>
       <li class="example__item">
-        <img src="img/examples/example-2.png" alt="сайт-пример">
+        <img src="img/examples/example-2.jpg" alt="сайт-пример">
         <a href="#" class="example__name name-elem">Сайт магазина детской одежды</a>
       </li>
       <li class="example__item">
-        <img src="img/examples/example-3.png" alt="сайт-пример">
+        <img src="img/examples/example-3.jpg" alt="сайт-пример">
         <a href="#" class="example__name name-elem">Сайт магазина "Рыболов"</a>
       </li>
     </ul>
-    <button class="example__arrow example__arrow--left"></button>
-    <button class="example__arrow example__arrow--right"></button>
+    <button class="example__arrow example__arrow--left" aria-label="стрелка влево"></button>
+    <button class="example__arrow example__arrow--right" aria-label="стрелка вправо"></button>
     <div class="example__pagination"></div>
     <button class="example__to-order orange-button">Заказать проект</button>
   </section>
@@ -133,21 +137,21 @@
       </div>
   </section>
 
-  <section class="pop-up">
+  <div class="pop-up">
     <div class="pop-up__overlay"></div>
     <div class="pop-up__menu">
-      <p>*Введите имя:</p>
-      <input class="pop-up__name" type="text" maxlength="50" placeholder="Имя">
-      <p>*Введите телефон:</p>
-      <input class="pop-up__number" type="number" maxlength="50" placeholder="Телефон">
-      <p class="pop-up__label">Введите email:</p>
-      <input class="pop-up__email" type="email" maxlength="50" placeholder="email">
-      <p>С вами свяжутся в ближайшее время</p>
-      <button class="pop-up__button orange-button">Отправить</button>
-      <p>* - поля обязательные к заполениню</p>
-      <button class="pop-up__close"></button>    
+          <p>*Введите имя:</p>
+          <input class="pop-up__name" type="text" maxlength="50" placeholder="Имя">
+          <p>*Введите телефон:</p>
+          <input class="pop-up__number" type="tel" maxlength="50" placeholder="8 (___) ___-__-__">
+          <p class="pop-up__label">Введите email:</p>
+          <input class="pop-up__email" type="email" maxlength="50" placeholder="email">
+          <p>С вами свяжутся в ближайшее время</p>
+          <button class="pop-up__button orange-button">Отправить</button>
+          <p>* - поля обязательные к заполениню</p>
+          <button class="pop-up__close" type="submit" aria-label="закрыть"></button>  
     </div>
-  </section>
+  </div>
 
 </main>
 
@@ -155,9 +159,9 @@
   <div class="bottom-menu center-wrapper">
     <nav class="bottom-menu__left">
       <ul class="bottom-menu__nav">
-        <li><a href="#">Услуги</a></li>
-        <li><a href="#">Портфолио</a></li>
-        <li><a href="#">Стоимость</a></li>
+        <li><a href="#i-doing">Услуги</a></li>
+        <li><a href="#example">Портфолио</a></li>
+        <li><a href="#advertising">Стоимость</a></li>       
       </ul>
     </nav>
     <div class="bottom-menu__center">

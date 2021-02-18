@@ -15,8 +15,8 @@ const pop_up__close = document.querySelector('.pop-up__close');
 
 const button = document.querySelectorAll('button');
 const call_back = document.getElementsByClassName('call-back');
-const orange_button = document.getElementsByClassName('orange-button');
 
+const see_more = document.querySelector('.see-more');
 const i_doing__cost = document.querySelector('.i-doing__cost');
 const example__to_order = document.querySelector('.example__to-order');
 const bottom_menu__call_back = document.querySelector('.bottom-menu__call-back');
@@ -28,117 +28,109 @@ const navigation__menu = document.querySelector('.navigation__menu');
 
 const navigation__li = document.querySelectorAll('.navigation__menu li');
 
-
-
 function playAnimation() {   
-  // for (let i = 0; i < tags.length; i++) {
-  //   tags[i].classList.add("elements--active");
-  //   tagsBot[i].classList.add("elements--active");
-  // }
   tags[0].classList.add("elements--active");
   tags[1].classList.add("elements--active");
-  // tagsBot[0].classList.add("elements--active");
-
-
-
-//   if (window.innerWidth > 1575) {
-//     tags[0].style.top = "83px";
-//     tags[0].style.left = "-192px";
-//     tags[0].style.right = "auto";
-//     tags[1].style.top = "118px";
-//     tags[1].style.left = "auto";
-//     tags[1].style.right = "696px";
-//     tags[2].style.top = "297px";
-//     tags[2].style.left = "-114px";
-//     tags[2].style.right = "auto";
-//     tags[3].style.top = "450px";
-//     tags[3].style.left = "574px";
-//     tags[3].style.right = "auto";
-//     tags[4].style.top = "570px";
-//     tags[4].style.left = "16px";
-//     tags[4].style.right = "auto";
-
-//     tagsBot[0].style.top = "-27px";
-//     tagsBot[0].style.left = "-289px";
-//     tagsBot[0].style.right = "auto";
-//     tagsBot[1].style.top = "-13px";
-//     tagsBot[1].style.left = "auto";
-//     tagsBot[1].style.right = "-216px";
-//     tagsBot[2].style.top = "188px";
-//     tagsBot[2].style.left = "-193px";
-//     tagsBot[2].style.right = "auto";
-//     tagsBot[3].style.top = "236px";
-//     tagsBot[3].style.left = "auto";
-//     tagsBot[3].style.right = "-49px";
-//     tagsBot[4].style.top = "175px";
-//     tagsBot[4].style.left = "auto";
-//     tagsBot[4].style.right = "-288px";
-//   }
-
-//   if (window.innerWidth <= 1575 && window.innerWidth > 832) {
-//     tags[0].style.top = "88px";
-//     tags[0].style.left = "61px";
-//     tags[0].style.right = "auto";
-//     tags[1].style.top = "64px";
-//     tags[1].style.left = "auto";
-//     tags[1].style.right = "70px";
-//     tags[2].style.top = "562px";
-//     tags[2].style.left = "45px";
-//     tags[2].style.right = "auto";
-//     tags[3].style.top = "166px";
-//     tags[3].style.left = "auto";
-//     tags[3].style.right = "512px";
-//     tags[4].style.top = "502px";
-//     tags[4].style.left = "auto";
-//     tags[4].style.right = "611px";
-
-//     tagsBot[0].style.top = "-59px";
-//     tagsBot[0].style.left = "119px";
-//     tagsBot[0].style.right = "auto";
-//     tagsBot[1].style.top = "222px";
-//     tagsBot[1].style.left = "auto";
-//     tagsBot[1].style.right = "39px";
-//     tagsBot[3].style.top = "250px";
-//     tagsBot[3].style.left = "auto";
-//     tagsBot[3].style.right = "422px";
-//   }
-
-//   if (window.innerWidth <= 832) {
-//     tags[0].style.top = "20px";
-//     tags[0].style.left = "50px";
-//     tags[0].style.right = "auto";
-//     tags[2].style.top = "114px";
-//     tags[2].style.left = "36px";
-//     tags[2].style.right = "auto";
-//     tags[3].style.top = "50px";
-//     tags[3].style.left = "auto";
-//     tags[3].style.right = "30px";
-//     tags[4].style.top = "-5px";
-//     tags[4].style.left = "auto";
-//     tags[4].style.right = "127px";
-//   }
 }
 
 setTimeout(playAnimation,100); 
 
-// for (let i = 0; i < navigation.length; i++) {
-//   navigation[i].addEventListener("click", function(e){
-//     e.preventDefault(); 
-//     window.scrollTo({
-//       top: y_scroll[i],
-//       behavior: "smooth"
-//     }); 
-//   });
-// }
 
+//Ajax забросы
 
-// see_more[0].addEventListener("click", function(e){
-//   e.preventDefault(); 
-//   window.scrollTo({
-//     top: y_scroll[0],
-//     behavior: "smooth"
-//   }); 
-// });
+function CreateRequest()
+{
+  let Request = false;
+  if (window.XMLHttpRequest)
+  {
+      //Gecko-совместимые браузеры, Safari, Konqueror
+      Request = new XMLHttpRequest();
+  }
+  else if (window.ActiveXObject)
+  {
+      //Internet explorer
+      try
+      {
+            Request = new ActiveXObject("Microsoft.XMLHTTP");
+      }    
+      catch (CatchException)
+      {
+            Request = new ActiveXObject("Msxml2.XMLHTTP");
+      }
+  } 
+  if (!Request)
+  {
+      alert("Невозможно создать XMLHttpRequest");
+  }    
+  return Request;
+} 
+
+/*
+Функция посылки запроса к файлу на сервере
+r_method  - тип запроса: GET или POST
+r_path    - путь к файлу
+r_args    - аргументы вида a=1&b=2&c=3...
+r_handler - функция-обработчик ответа от сервера
+*/
+function SendRequest(r_method, r_path, r_args, r_handler)
+{
+  //Создаём запрос
+  var Request = CreateRequest();
+  
+  //Проверяем существование запроса еще раз
+  if (!Request)
+  {
+    return;
+  }
+  
+  //Назначаем пользовательский обработчик
+  Request.onreadystatechange = function()
+  {
+    //Если обмен данными завершен
+    if (Request.readyState == 4)
+    {
+        //Передаем управление обработчику пользователя
+        r_handler(Request);
+    }
+  }
+  
+  //Проверяем, если требуется сделать GET-запрос
+  if (r_method.toLowerCase() == "get" && r_args.length > 0)
+  r_path += "?" + r_args;
+  
+  //Инициализируем соединение
+  Request.open(r_method, r_path, true);
+  
+  if (r_method.toLowerCase() == "post")
+  {
+    //Если это POST-запрос
+    
+    //Устанавливаем заголовок
+    Request.setRequestHeader("Content-Type","application/x-www-form-urlencoded; charset=utf-8");
+    //Посылаем запрос
+    Request.send(r_args);
+  }
+  else
+  {
+      //Если это GET-запрос        
+      //Посылаем нуль-запрос
+      Request.send(null);
+  }
+} 
+
+//Прием ответа
+let Handler = function(Request)
+{   
+  console.log(Request);
+}
+
+let project_name = "Вася";
+let admin_email = "GGconcurs@yandex.ru";
+let form_subject = "Заявка";
+
+//==============
+
+//Навигация
 
 const smoothLinks = document.querySelectorAll('[href^="#"]');
 for (let smoothLink of smoothLinks) {
@@ -153,18 +145,26 @@ for (let smoothLink of smoothLinks) {
     });
 };
 
-// pop_up.addEventListener("mouseover", function(e){
-//   pop_up_zone = true;
-// });
+see_more.addEventListener("click", function(e){
+  document.querySelector(".i-doing").scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
+});
 
-// pop_up.addEventListener("mouseout", function(e){
-//   pop_up_zone = false;
-// });
-
+//Pop-up
 
 pop_up__button.addEventListener("click", function(e){
   if (pop_up__name.value != ""){
     if (pop_up__number.value != ""){
+        let textPost	= "project_name=" + pop_up__name.value + 
+        "&admin_email=" + admin_email + 
+        "&form_subject=" + form_subject + 
+        "&Имя=" + pop_up__name.value + 
+        "&Телефон=" + pop_up__number.value +
+        "&Email=" + pop_up__email.value;
+        SendRequest("POST",'php/mail.php',textPost,Handler);
+        
         alert("Данные успешно отправленны");
         pop_up.style.display = "none";
     }
@@ -253,7 +253,8 @@ bottom_menu__call_back.addEventListener("mouseout", function(e){
     bottom_menu__call_back.style.backgroundColor = "";
 });
 
-//меню
+//всплывающее меню
+//открыть
 
 header__button.addEventListener("click", function(e){
   header__overlay.style.display = "block";
@@ -261,6 +262,8 @@ header__button.addEventListener("click", function(e){
   header__navigation.classList.add("header__navigation--menu");
   navigation__menu.classList.add("navigation__menu--burger");
 });
+
+//закрыть
 
 header__overlay.addEventListener("click", function(e){
   header__overlay.style.display = "none";
@@ -276,6 +279,10 @@ for (let i = 0; i < navigation__li.length; i++) {
     navigation__menu.classList.remove("navigation__menu--burger");
   });
 }
+
+
+let im = new Inputmask("8 (999) 999-99-99");
+im.mask(pop_up__number);
 
 new Swiper('.example', {
   wrapperClass: 'example__list',
