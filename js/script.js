@@ -97,6 +97,7 @@ function SendRequest(r_method, r_path, r_args, r_handler)
       else
       {
           //Оповещаем пользователя о произошедшей ошибке
+          console.log("Ошибка отправки");
       }
     }
     else
