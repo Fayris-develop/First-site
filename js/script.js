@@ -136,7 +136,7 @@ let Handler = function(Request)
   console.log(Request);
 }
 
-let project_name = "Вася";
+let project_name = "ИЛьдар";
 let admin_email = "GGconcurs@yandex.ru";
 let form_subject = "Заявка";
 
@@ -208,38 +208,57 @@ pop_up__number.addEventListener("keydown", function(e){
 //Закрыть pop_up
 
 pop_up__close.addEventListener("click", function(e){
-  pop_up.style.display = "none";
-
-  pop_up__label.style.display = "block";
-  pop_up__email.style.display = "block";
-  pop_up__menu.style.height = "500px";
+  pop_up__menu.classList.remove("pop-up__menu--enable");
+  pop_up__overlay.classList.remove("pop-up__overlay--enable");
+  setTimeout(slowHide,300);
 });
 
 pop_up__overlay.addEventListener("click", function(e){
-  pop_up.style.display = "none";
-
-  pop_up__label.style.display = "block";
-  pop_up__email.style.display = "block";
-  pop_up__menu.style.height = "500px";
+  pop_up__menu.classList.remove("pop-up__menu--enable");
+  pop_up__overlay.classList.remove("pop-up__overlay--enable");
+  setTimeout(slowHide,300);
 });
 
 //Открыть pop_up
 
 i_doing__cost.addEventListener("click", function(e){
   pop_up.style.display = "block";
+  // pop_up__menu.classList.add("pop-up__menu--enable");
+  setTimeout(slowShow,1);
 });
 example__to_order.addEventListener("click", function(e){
+
   pop_up.style.display = "block";
+  // pop_up__menu.classList.add("pop-up__menu--enable");
+  setTimeout(slowShow,1);
 });
 
 for (let i = 0; i < call_back.length; i++) {
   call_back[i].addEventListener("click", function(e){
-    pop_up.style.display = "block";
 
+    pop_up.style.display = "block";
+    // pop_up__menu.classList.add("pop-up__menu--enable");
+    setTimeout(slowShow,1);
+
+    //Убираем лишнее при телефонном
     pop_up__label.style.display = "none";
     pop_up__email.style.display = "none";
     pop_up__menu.style.height = "410px";
   });
+}
+
+//
+
+function slowShow() {   
+  pop_up__menu.classList.add("pop-up__menu--enable");
+  pop_up__overlay.classList.add("pop-up__overlay--enable");
+}
+function slowHide() {   
+  pop_up.style.display = "none";
+
+  pop_up__label.style.display = "block";
+  pop_up__email.style.display = "block";
+  pop_up__menu.style.height = "500px";
 }
 
 // меняем цвет кнопок при наведении

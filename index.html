@@ -3,8 +3,8 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Диплом</title>
-  <link rel="stylesheet" type="text/css" href="css/styles.css?1.00">
+  <title>Дмитрий Алексеев</title>
+  <link rel="stylesheet" type="text/css" href="css/styles.css?1.01">
   <link rel="stylesheet" type="text/css" href="css/img-font.css?1.00"><!-- шрифт с иконками -->
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> -->
   <link rel="preload" href="../fonts/roboto-v20-latin_cyrillic-regular.woff2" as="font" type="font/woff2" crossorigin>
@@ -136,23 +136,6 @@
         </div>
       </div>
   </section>
-
-  <div class="pop-up">
-    <div class="pop-up__overlay"></div>
-    <div class="pop-up__menu">
-          <p>*Введите имя:</p>
-          <input class="pop-up__name" type="text" maxlength="50" placeholder="Имя">
-          <p>*Введите телефон:</p>
-          <input class="pop-up__number" type="tel" maxlength="50" placeholder="8 (___) ___-__-__">
-          <p class="pop-up__label">Введите email:</p>
-          <input class="pop-up__email" type="email" maxlength="50" placeholder="email">
-          <p>С вами свяжутся в ближайшее время</p>
-          <button class="pop-up__button orange-button">Отправить</button>
-          <p>* - поля обязательные к заполениню</p>
-          <button class="pop-up__close" type="submit" aria-label="закрыть"></button>  
-    </div>
-  </div>
-
 </main>
 
 <footer class="footer">
@@ -177,10 +160,10 @@
     <div class="bottom-menu__right">
       <button class="bottom-menu__call-back call-back">Заказать звонок</button>
       <ul class="bottom-menu__icon social-networks">        
-        <li><a href="#" aria-label="Вконтакте" class="social-networks__item social-networks__item--vk"></a></li>
-        <li><a href="#" aria-label="Facebook" class="social-networks__item social-networks__item--fb"></a></li>
-        <li><a href="#" aria-label="Twitter" class="social-networks__item social-networks__item--tw"></a></li>
-        <li><a href="#" aria-label="Instagram" class="social-networks__item social-networks__item--inst"></a></li>
+        <li><a href="#" title="Вконтакте" aria-label="Вконтакте" class="social-networks__item social-networks__item--vk"></a></li>
+        <li><a href="#" title="Facebook" aria-label="Facebook" class="social-networks__item social-networks__item--fb"></a></li>
+        <li><a href="#" title="Twitter" aria-label="Twitter" class="social-networks__item social-networks__item--tw"></a></li>
+        <li><a href="#" title="Instagram" aria-label="Instagram" class="social-networks__item social-networks__item--inst"></a></li>
       </ul>
     </div>
   </div>
@@ -190,5 +173,20 @@
 </footer>
 
 <!--<a href="#" class="up-button">наверх</a>-->
+<div class="pop-up">
+  <div class="pop-up__overlay"></div>
+  <div class="pop-up__menu">
+        <p>*Введите имя:</p>
+        <input class="pop-up__name" type="text" maxlength="50" placeholder="Имя">
+        <p>*Введите телефон:</p>
+        <input class="pop-up__number" type="tel" maxlength="50" placeholder="8 (___) ___-__-__">
+        <p class="pop-up__label">Введите email:</p>
+        <input class="pop-up__email" type="email" maxlength="50" placeholder="email">
+        <p>С вами свяжутся в ближайшее время</p>
+        <button class="pop-up__button orange-button">Отправить</button>
+        <p>* - поля обязательные к заполениню</p>
+        <button class="pop-up__close" type="submit" aria-label="закрыть"></button>  
+  </div>
+</div>
 </body>
 </html>
